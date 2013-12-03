@@ -42,7 +42,7 @@
     	$bandit = new Bandit($date, $text);
     	$bandit->insert_db();
     	unset($bandit);
-    	unset($_POST);
+    	unset($_POST['bandit']);
     }
 ?>
 
