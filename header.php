@@ -63,9 +63,3 @@
 			</p>
 		</form>
 	</div>
-
-	<div id="search_box" class="black_box">
-		<form class="pad_box" action="search.php" method="get">
-			<input id="search_input" type="text" value="" name="search"/>
-		</form>
-	</div>

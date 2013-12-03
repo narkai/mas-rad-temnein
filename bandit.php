@@ -3,8 +3,8 @@
       private $date;
       private $text;
       private $id;
-      
-      function __construct($date, $text) {         
+
+      function __construct($date, $text) {      
          $this->date = $date;
          $this->text = $text;
       }
