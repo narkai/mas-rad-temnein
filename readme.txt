@@ -5,6 +5,8 @@ TEMNEIN README
 Temnein is a little project for heigvd-mas-rad-2 php module.
 You can save your texts with date.
 
+Karian, Matthieu
+
 -
 
 Paste the following code in your xamp phpmyadmin sql area and execute the request to create the database and the table used in the temnein project.
