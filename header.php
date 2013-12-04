@@ -1,7 +1,5 @@
 <?php
 	include('inc/Lead.php');
-
-	require "bandit.php";
 ?>
 
 <!DOCTYPE html>
@@ -26,8 +24,8 @@
 <link href="css/reset.css" type="text/css" rel="stylesheet" media="screen" charset="utf-8" />
 <link href="css/style.css" type="text/css" rel="stylesheet" media="screen" charset="utf-8" />
 
-<script type="text/javascript" src="js/jquery-1.6.js"> </script>
-<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+<!--<script type="text/javascript" src="js/jquery-1.6.js"> </script>-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <script type="text/javascript" src="js/site.js"> </script>
 
@@ -35,16 +33,6 @@
 
 <body>
 
-<?php
-    if (isset($_POST['bandit']) && is_scalar($_POST['bandit'])) {
-    	$date = date('Y-m-d H:i:s');
-    	$text = mysql_real_escape_string($_POST['bandit']);
-    	$bandit = new Bandit($date, $text);
-    	$bandit->insert_db();
-    	unset($bandit);
-    	unset($_POST['bandit']);
-    }
-?>
 
 <div id="site">
 
@@ -55,9 +43,9 @@
 	</a>
 
 	<div id="add_box" class="black_box pad_box">
-		<form action="index.php" method="post">
+		<form id="new_bandit_form" action="new.php" method="post">
 			<p>
-			   	<textarea id="add_area" name="bandit"></textarea>
+			   	<textarea id="add_area" name="bandit" value=""></textarea>
 			   	<input id="add_button" type="submit" value="Temnein"/>
 			   	<span id="text_count"></span>
 			</p>

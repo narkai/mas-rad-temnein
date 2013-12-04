@@ -11,6 +11,29 @@ $(document).ready(function() {
 	var offset = $('.bandit:last').offset();
 
 	//
+	$('#new_bandit_form').on('submit', function() {
+	
+	       // je récupère les valeurs
+	       var message = $('#add_area').val();
+	     
+	       if(message == '') {
+	           console.log('Les champs doivent êtres remplis');
+	       } else {
+	           // appel Ajax
+	           $.ajax({
+	               url: $(this).attr('action'), // le nom du fichier indiqué dans le formulaire
+	               type: $(this).attr('method'), // la méthode indiquée dans le formulaire (get ou post)
+	               data: $(this).serialize(), // je sérialise les données (voir plus loin), ici les $_POST
+	               success: function(data) { // je récupère la réponse du fichier PHP
+	                   console.log(data); // j'affiche cette réponse
+
+	                	$('.bandit:first').parent().before(data);
+						offset = $('.bandit:first').offset();
+	               }
+	           });
+	       }
+	       return false; // j'empêche le navigateur de soumettre lui-même le formulaire
+	   });
  
 	$("#later").click(function() {
 	
