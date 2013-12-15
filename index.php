@@ -1,20 +1,20 @@
 <?php
-//$title = 'Temnein';
+include('inc/Lead.php');
 
+session_start();
 
-include "login.php";
+include ('login.php');
 
-include "header.php";
+$title = 'Temnein';
+include ('header.php');
 ?>
 
 	<div id="add_box" class="black_box pad_box">
-	
-		<?php // echo $_SESSION['login']; ?>
 		
 		<form action="index.php" method="post">
-		Login : <input type="text" name="login" value="<?php if (isset($_POST['login'])) echo htmlentities(trim($_POST['login'])); ?>"><br />
-		Mot de passe : <input type="password" name="pass" value="<?php if (isset($_POST['pass'])) echo htmlentities(trim($_POST['pass'])); ?>"><br />
-		<input type="submit" name="connexion" value="Connexion">
+		Username : <input type="text" name="username" value="<?php if (isset($_POST['username'])) echo htmlentities(trim($_POST['username'])); ?>"><br />
+		Password : <input type="password" name="password" value="<?php if (isset($_POST['password'])) echo htmlentities(trim($_POST['password'])); ?>"><br />
+		<input type="submit" name="connection" value="Connection">
 		</form>
 
 	</div>
@@ -22,5 +22,4 @@ include "header.php";
 <?php
 
 include('footer.php');
-
 ?>

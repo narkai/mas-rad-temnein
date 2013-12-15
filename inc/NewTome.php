@@ -1,5 +1,6 @@
 <?php
-   class Bandit {
+
+   class NewTome {
       private $date;
       private $text;
       private $id;
@@ -14,7 +15,7 @@
       }
 
       public function insert_db() {
-         $query="INSERT INTO bandits (date, text) VALUES ('$this->date', '$this->text')";
+         $query="INSERT INTO tomes (date, text) VALUES ('$this->date', '$this->text')";
          mysql_query($query);
          $this->id = mysql_insert_id();
       }

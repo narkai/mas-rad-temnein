@@ -8,11 +8,11 @@ $(document).ready(function() {
 
 	var load = false;
 	
-	var offset = $('.bandit:last').offset();
+	var offset = $('.tome:last').offset();
 
 	//
 
-	$('#new_bandit_form').on('submit', function() {
+	$('#new_tome_form').on('submit', function() {
 
 		var message = $('#add_area').val();
 
@@ -29,8 +29,8 @@ $(document).ready(function() {
 					success: function(data) {
 						console.log(data);
 
-						$('.bandit:first').parent().before(data);
-						offset = $('.bandit:first').offset();
+						$('.tome:first').parent().before(data);
+						offset = $('.tome:first').offset();
 
 						load = false;
 					}
@@ -53,7 +53,7 @@ $(document).ready(function() {
 		if(load == false){
 		
 			load = true;
-			var last_id = $('.bandit:first').attr('id');
+			var last_id = $('.tome:first').attr('id');
 		
 			$.ajax({
 				url: 'lib/later.php',
@@ -63,8 +63,8 @@ $(document).ready(function() {
  
 				success: function(data) {
 
-					$('.bandit:first').parent().before(data);
-					offset = $('.bandit:first').offset();
+					$('.tome:first').parent().before(data);
+					offset = $('.tome:first').offset();
 
 					load = false;
 				}
@@ -81,7 +81,7 @@ $(document).ready(function() {
 		if(load == false){
 		
 			load = true;
-			var last_id = $('.bandit:last').attr('id');
+			var last_id = $('.tome:last').attr('id');
 		
 			$.ajax({
 				url: 'lib/earlier.php',
@@ -91,8 +91,8 @@ $(document).ready(function() {
  
 				success: function(data) {
 
-					$('.bandit:last').parent().after(data);
-					offset = $('.bandit:last').offset();
+					$('.tome:last').parent().after(data);
+					offset = $('.tome:last').offset();
 
 					load = false;
 				}

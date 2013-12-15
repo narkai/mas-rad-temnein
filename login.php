@@ -1,51 +1,36 @@
 <?php
-	include('inc/Lead.php');
+if (isset($_SESSION['user_name'])) {
+	header ('Location: user.php');
+	exit();
+}
 
-	session_start();
-	if (isset($_SESSION['login'])) {
-		header ('Location: user.php');
-		exit();
-	}
-	//$title = 'Temnein';
-	// on teste si le visiteur a soumis le formulaire de connexion
-	if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion') {
-		if ((isset($_POST['login']) && !empty($_POST['login'])) && (isset($_POST['pass']) && !empty($_POST['pass']))) {
+if (isset($_POST['connection']) && $_POST['connection'] == 'Connection') {
+	if ((isset($_POST['username']) && !empty($_POST['username'])) && (isset($_POST['password']) && !empty($_POST['password']))) {
 
-		//$base = mysql_connect ('serveur', 'login', 'password');
-		//mysql_select_db ('nom_base', $base);
-
-		// on teste si une entrée de la base contient ce couple login / pass
-		$sql = 'SELECT * FROM membre WHERE login="'.mysql_escape_string($_POST['login']).'" AND pass_md5="'.mysql_escape_string(md5($_POST['pass'])).'"';
+		$sql = 'SELECT * FROM users WHERE username = "'.mysql_escape_string($_POST['username']).'" AND pass_md5 = "'.mysql_escape_string(md5($_POST['password'])).'"';
 		$req = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
 		$data = mysql_fetch_array($req);
-
 		
-		//mysql_close();
-		//echo $data[0];
-		// si on obtient une réponse, alors l'utilisateur est un membre
-		if (is_numeric($data[0])) {
-			//session_start();
+		mysql_close();
 
+		if (mysql_num_rows($req) == 1) {
+		
+			$_SESSION['user_id'] = $data[0];
+			$_SESSION['user_name'] = $data[1];
 
-			$_SESSION['login'] = $_POST['login'];
-			$_SESSION['id'] = $data[0];
-			
 			mysql_free_result($req);
 			header('Location: user.php');
 			exit();
 
+		} elseif ($data[0] == 0) {
+			$error = 'Wrong login.';
+
+		} else {
+			$error = 'Database problem. Multiple logins.';
 		}
-		// si on ne trouve aucune réponse, le visiteur s'est trompé soit dans son login, soit dans son mot de passe
-		elseif ($data[0] == 0) {
-			$erreur = 'Compte non reconnu.';
-		}
-		// sinon, alors la, il y a un gros problème :)
-		else {
-			$erreur = 'Probème dans la base de données : plusieurs membres ont les mêmes identifiants de connexion.';
-		}
-		}
-		else {
-		$erreur = 'Au moins un des champs est vide.';
-		}
+	
+	} else {
+		$error = 'Empy field.';
 	}
-	?>
+}
+?>

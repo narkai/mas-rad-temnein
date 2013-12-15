@@ -1,43 +1,46 @@
 <?php
-$title = 'Temnein';
+include('inc/Lead.php');
+
 session_start();
-if (!isset($_SESSION['login'])) {
+
+if (!isset($_SESSION['user_name'])) {
 	header ('Location: index.php');
 	exit();
 }
-include('inc/Lead.php');
+
+$title = 'Temnein';
 include('header.php');
 
-echo $_SESSION['login'];
-echo $_SESSION['id'];
+//echo $_SESSION['user_id'];
+//echo $_SESSION['user_name'];
 ?>
 
-<form id="new_bandit_form" action="lib/new.php" method="post">
-	<textarea id="add_area" name="bandit" value=""></textarea>
-	<input id="add_button" type="submit" value="Temnein"/>
-   	<span id="text_count"></span>		
-</form>
-<br />
-<a href="logout.php">Logout</a>
+	<div id="add_box" class="black_box pad_box">
+		<form id="new_tome_form" action="lib/new.php" method="post">
+			<textarea id="add_area" name="tome" value=""></textarea>
+			<input id="add_button" type="submit" value="Temnein"/>
+		   	<span id="text_count"></span>		
+		</form>
+	</div>
+
+	<a href="logout.php">Logout</a>
 
 	<div id="content">
 
-		<div id="bandits">
+		<div id="tomes">
 
-			<?php
-			$sql=mysql_query('SELECT * FROM bandits WHERE membre_id = "'.mysql_escape_string($_SESSION['id']).'" ORDER BY id DESC LIMIT 15');
-			while($quotes=mysql_fetch_assoc($sql)) {
-			?>
-				
-				<a href="pillow.php?bandit_id=<?php echo $quotes['id']?>">
-					<div id="<?php echo htmlentities($quotes['id']); ?>" class="bandit zone pad_box">
-						<p> <?php echo htmlentities($quotes['text']); ?> </p>
-					</div>
-				</a>
-
-			<?php
-			}
-			?>
+		<?php
+		$tomes = mysql_query('SELECT * FROM tomes WHERE user_id = "'.mysql_escape_string($_SESSION['user_id']).'" ORDER BY id DESC LIMIT 15');
+		while ($tome = mysql_fetch_assoc($tomes)) {
+		?>
+		
+		<a href="tome.php?tome_id=<?php echo $tome['id']?>">
+			<div id="<?php echo htmlentities($tome['id']); ?>" class="tome zone pad_box">
+				<p> <?php echo htmlentities($tome['text']); ?> </p>
+			</div>
+		</a>
+		
+		<?php } ?>
 
 		</div>
 

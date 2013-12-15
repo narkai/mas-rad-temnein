@@ -63,31 +63,31 @@ header h1{
 	width: 100%;
 }
 
-#bandits{
+#tomes{
 	width: 100%;
 	height: auto;
 	float: left;
 }
 
-.bandit{
+.tome{
 	height: auto;
 	margin-bottom: 15px;
 }
 
-.bandit a{
+.tome a{
 	font-size: 15px;
 	text-decoration: none;
 	color: black;
 }
 
-.bandit h1{
+.tome h1{
 	color: red;
 	font-style: italic;
 	font-weight: bold;
 	float: left;
 }
 
-.bandit:hover{
+.tome:hover{
 	color: white;
 }
 
