@@ -1,7 +1,3 @@
-<?php
-	include('inc/Lead.php');
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -41,11 +37,3 @@
 			<h1> TEMNEIN </h1>
 		</header>
 	</a>
-
-	<div id="add_box" class="black_box pad_box">
-		<form id="new_bandit_form" action="lib/new.php" method="post">
-			<textarea id="add_area" name="bandit" value=""></textarea>
-			<input id="add_button" type="submit" value="Temnein"/>
-		   	<span id="text_count"></span>		
-		</form>
-	</div>
