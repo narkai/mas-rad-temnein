@@ -11,29 +11,40 @@ $(document).ready(function() {
 	var offset = $('.bandit:last').offset();
 
 	//
-	$('#new_bandit_form').on('submit', function() {
-	
-	       // je récupère les valeurs
-	       var message = $('#add_area').val();
-	     
-	       if(message == '') {
-	           console.log('Les champs doivent êtres remplis');
-	       } else {
-	           // appel Ajax
-	           $.ajax({
-	               url: $(this).attr('action'), // le nom du fichier indiqué dans le formulaire
-	               type: $(this).attr('method'), // la méthode indiquée dans le formulaire (get ou post)
-	               data: $(this).serialize(), // je sérialise les données (voir plus loin), ici les $_POST
-	               success: function(data) { // je récupère la réponse du fichier PHP
-	                   console.log(data); // j'affiche cette réponse
 
-	                	$('.bandit:first').parent().before(data);
+	$('#new_bandit_form').on('submit', function() {
+
+		var message = $('#add_area').val();
+
+		if(message == '') {
+		   console.log('empty field');
+		} else {
+			if(load == false){
+				load = true;
+
+				$.ajax({
+					url: $(this).attr('action'),
+					type: $(this).attr('method'),
+					data: $(this).serialize(),
+					success: function(data) {
+						console.log(data);
+
+						$('.bandit:first').parent().before(data);
 						offset = $('.bandit:first').offset();
-	               }
-	           });
-	       }
-	       return false; // j'empêche le navigateur de soumettre lui-même le formulaire
-	   });
+
+						load = false;
+					}
+				});
+
+			}
+		}
+		
+		$("#add_area").val('');
+
+		return false;
+	});
+
+	//
  
 	$("#later").click(function() {
 	
@@ -45,7 +56,7 @@ $(document).ready(function() {
 			var last_id = $('.bandit:first').attr('id');
 		
 			$.ajax({
-				url: 'later.php',
+				url: 'lib/later.php',
 				type: 'get',
 				dataType: 'text',
 				data: 'first='+last_id,
@@ -73,7 +84,7 @@ $(document).ready(function() {
 			var last_id = $('.bandit:last').attr('id');
 		
 			$.ajax({
-				url: 'earlier.php',
+				url: 'lib/earlier.php',
 				type: 'get',
 				dataType: 'text',
 				data: 'last='+last_id,

@@ -1,5 +1,5 @@
 <?php
-include('inc/Lead.php');
+include('../inc/Lead.php');
 
 $sql=mysql_query("SELECT * FROM bandits WHERE id > ".mysql_real_escape_string($_GET['first'])." ORDER BY id ASC LIMIT 1");
 
