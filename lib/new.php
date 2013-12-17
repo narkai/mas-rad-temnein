@@ -1,11 +1,14 @@
 <?php
-include('../inc/Lead.php');
-require "../Tome.php";
+require('../inc/Lead.php');
+require "../inc/NewTome.php";
+
+session_start();
 
 if (isset($_POST['tome']) && is_scalar($_POST['tome'])) {
 	$date = date('Y-m-d H:i:s');
 	$text = mysql_real_escape_string($_POST['tome']);
-	$tome = new Tome($date, $text);
+	$user_id = intval($_SESSION['user_id']);
+	$tome = new NewTome($date, $text, $user_id);
 	$tome->insert_db();
 	//unset($tome);
 	unset($GLOBALS['tome']);

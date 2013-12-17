@@ -23,8 +23,6 @@
 <!--<script type="text/javascript" src="js/jquery-1.6.js"> </script>-->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-<script type="text/javascript" src="js/site.js"> </script>
-
 </head>
 
 <body>

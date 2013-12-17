@@ -62,7 +62,7 @@ $(document).ready(function() {
 				data: 'first='+last_id,
  
 				success: function(data) {
-
+					if(data == "") $("#later p").html("No more");
 					$('.tome:first').parent().before(data);
 					offset = $('.tome:first').offset();
 
@@ -73,11 +73,7 @@ $(document).ready(function() {
 	});
 
 	//
-	
-	$("#earlier").click(function() {
-	
-		//console.log("CLICK");
-		
+	$("#earlier").click(function() {	
 		if(load == false){
 		
 			load = true;
@@ -88,12 +84,11 @@ $(document).ready(function() {
 				type: 'get',
 				dataType: 'text',
 				data: 'last='+last_id,
- 
-				success: function(data) {
 
+				success: function(data) {
+					if(data == "") $("#earlier p").html("No more");
 					$('.tome:last').parent().after(data);
 					offset = $('.tome:last').offset();
-
 					load = false;
 				}
 			});

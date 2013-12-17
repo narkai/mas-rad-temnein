@@ -7,7 +7,7 @@ if (isset($_SESSION['user_name'])) {
 if (isset($_POST['connection']) && $_POST['connection'] == 'Connection') {
 	if ((isset($_POST['username']) && !empty($_POST['username'])) && (isset($_POST['password']) && !empty($_POST['password']))) {
 
-		$sql = 'SELECT * FROM users WHERE username = "'.mysql_escape_string($_POST['username']).'" AND pass_md5 = "'.mysql_escape_string(md5($_POST['password'])).'"';
+		$sql = 'SELECT * FROM users WHERE username = "'.mysql_real_escape_string($_POST['username']).'" AND pass_md5 = "'.mysql_real_escape_string(md5($_POST['password'])).'"';
 		$req = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
 		$data = mysql_fetch_array($req);
 		

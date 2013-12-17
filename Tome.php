@@ -1,16 +1,20 @@
 <?php
-include('inc/Lead.php');
+require('inc/Lead.php');
+session_start();
 
+require('header.php');
 $title = 'Temnein';
-include('header.php');
-
 //
+?>
+<div id="content">
 
-$tomes = mysql_query('SELECT * FROM tomes WHERE id = "'.mysql_real_escape_string($_GET['tome_id']).'"');
-while ($tome = mysql_fetch_assoc($tomes)) {
+<?php
+if(is_scalar($_GET['tome_id']) && is_numeric($_GET['tome_id'])) {
+$tomes = mysql_query('SELECT * FROM tomes WHERE user_id = "'. mysql_real_escape_string($_SESSION['user_id']).'" AND id = '.$_GET['tome_id'].'');
 ?>
 
-<div id="content">
+<?php while ($tome = mysql_fetch_assoc($tomes)): ?>
+
 
 	<div id="later" class="zone pad_box">
 		<p> Later </p>
@@ -28,12 +32,12 @@ while ($tome = mysql_fetch_assoc($tomes)) {
 		<p> Earlier </p>
 	</div>
 	
+
+
+<?php endwhile; } else { ?>
+	<p> Invalid ID </p>
+<?php } ?>
+
 </div>
 
-<?php
-}
-?>
-
-<?php
-include('footer.php');
-?>
+<?php include('footer.php'); ?>

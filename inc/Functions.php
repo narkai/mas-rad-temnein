@@ -1,9 +1,9 @@
 <?php
 
-function sanitize($string = '', $isFilename = false) {
-    $string = preg_replace('/[^\w\-'. ($isFilename ? '~_\.' : ''). ']+/u', '-', $string);
-    return mb_strtolower(preg_replace('/--+/u', '-', $string), 'UTF-8');
-}
+// function sanitize($string = '', $isFilename = false) {
+//     $string = preg_replace('/[^\w\-'. ($isFilename ? '~_\.' : ''). ']+/u', '-', $string);
+//     return mb_strtolower(preg_replace('/--+/u', '-', $string), 'UTF-8');
+// }
 
 /*function escapeIt($file){
 	if (($handle = fopen("files/$file", "r")) !== FALSE) {

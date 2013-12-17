@@ -1,12 +1,12 @@
 <?php
-include('inc/Lead.php');
+require('inc/Lead.php');
 
 session_start();
 
-include ('login.php');
+require ('login.php');
 
 $title = 'Temnein';
-include ('header.php');
+require ('header.php');
 ?>
 
 	<div id="add_box" class="black_box pad_box">
@@ -21,5 +21,5 @@ include ('header.php');
 
 <?php
 
-include('footer.php');
+require('footer.php');
 ?>

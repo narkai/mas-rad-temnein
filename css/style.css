@@ -38,6 +38,11 @@ header h1{
 	left: 55px;
 }
 
+form {
+	overflow: auto;
+}
+
+
 #add_area{
 	display: block;
 	resize: none;
@@ -168,7 +173,6 @@ a:hover {
 .overlimit{
    color: red;         
 }​
-
 
 
 

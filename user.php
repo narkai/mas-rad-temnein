@@ -1,6 +1,5 @@
 <?php
-include('inc/Lead.php');
-
+require('inc/Lead.php');
 session_start();
 
 if (!isset($_SESSION['user_name'])) {
@@ -21,16 +20,15 @@ include('header.php');
 			<input id="add_button" type="submit" value="Temnein"/>
 		   	<span id="text_count"></span>		
 		</form>
+		<a href="logout.php">Logout</a>
 	</div>
-
-	<a href="logout.php">Logout</a>
 
 	<div id="content">
 
 		<div id="tomes">
 
 		<?php
-		$tomes = mysql_query('SELECT * FROM tomes WHERE user_id = "'.mysql_escape_string($_SESSION['user_id']).'" ORDER BY id DESC LIMIT 15');
+		$tomes = mysql_query('SELECT * FROM tomes WHERE user_id = "'. mysql_real_escape_string($_SESSION['user_id']).'" ORDER BY id DESC LIMIT 2');
 		while ($tome = mysql_fetch_assoc($tomes)) {
 		?>
 		
