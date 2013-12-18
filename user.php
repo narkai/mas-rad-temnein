@@ -1,5 +1,6 @@
 <?php
 require('inc/Lead.php');
+
 session_start();
 
 if (!isset($_SESSION['user_name'])) {
@@ -28,17 +29,9 @@ include('header.php');
 		<div id="tomes">
 
 		<?php
-		$tomes = mysql_query('SELECT * FROM tomes WHERE user_id = "'. mysql_real_escape_string($_SESSION['user_id']).'" ORDER BY id DESC LIMIT 2');
-		while ($tome = mysql_fetch_assoc($tomes)) {
+		$sql = 'SELECT * FROM tomes WHERE user_id = "'. mysql_real_escape_string($_SESSION['user_id']).'" ORDER BY date DESC LIMIT 15';
+		displayTomes($sql);
 		?>
-		
-		<a href="tome.php?tome_id=<?php echo $tome['id']?>">
-			<div id="<?php echo htmlentities($tome['id']); ?>" class="tome zone pad_box">
-				<p> <?php echo htmlentities($tome['text']); ?> </p>
-			</div>
-		</a>
-		
-		<?php } ?>
 
 		</div>
 
@@ -48,6 +41,4 @@ include('header.php');
 
 	</div>
 
-<?php
-include('footer.php');
-?>
+<?php include('footer.php'); ?>

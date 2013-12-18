@@ -9,19 +9,6 @@ Karian, Matthieu
 
 -
 
-Paste the following code in your xamp phpmyadmin sql area and execute the request to create the database and the table used in the temnein project.
+Import the sql database file "temnein.sql.zip" from the root folder to your xamp phpmyadmin interface.
 
 -
-
-CREATE DATABASE `temnein`;
-
-USE `temnein`;
-
-CREATE TABLE `bandits` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `date` datetime NOT NULL,
- `text` text NOT NULL,
- PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
-
-INSERT INTO `bandits` (`id`, `date`, `text`) VALUES(1, '2013-11-28 13:46:19', 'Hello universe.');

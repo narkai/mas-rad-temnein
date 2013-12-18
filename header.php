@@ -9,7 +9,7 @@
 
 <meta charset="ISO-8859-1" />
 
-<title> <?php echo $title ?> </title>
+<title> <?php echo htmlentities($title) ?> </title>
 
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="viewport" content="width=device-width, user-scalable=0" />

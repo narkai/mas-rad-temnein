@@ -13,7 +13,7 @@ body{
 
 #site{
 	width: 555px;
-	height: auto;
+	overflow: auto;
 	margin: 0 auto;
 }
 
