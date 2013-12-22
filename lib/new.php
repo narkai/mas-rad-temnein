@@ -14,6 +14,6 @@ if (isset($_POST['tome']) && is_scalar($_POST['tome'])) {
 	unset($GLOBALS['tome']);
 }
 
-$sql = 'SELECT * FROM tomes ORDER BY id DESC LIMIT 1';
+$sql = 'SELECT * FROM tomes ORDER BY date DESC LIMIT 1';
 displayTomes($sql);
 ?>

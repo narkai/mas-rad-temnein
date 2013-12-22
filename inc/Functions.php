@@ -7,7 +7,7 @@ function displayTomes($query)
   while($data=mysql_fetch_assoc($sql)):
 
   echo
-  '<a href="tome.php?tome_id= '.urlencode($data['id']).' ">
+  '<a href="tome.php?tome_id='.urlencode($data['id']).' ">
     <div id=" '.$data['id'].' " class="tome zone pad_box">
       <p> '.htmlentities($data['text']).' </p>
     </div>
