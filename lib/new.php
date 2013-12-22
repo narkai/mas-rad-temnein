@@ -3,7 +3,7 @@ require('../inc/Lead.php');
 
 session_start();
 
-require "../inc/NewTome.php";
+require("../inc/NewTome.php");
 
 if (isset($_POST['tome']) && is_scalar($_POST['tome'])) {
 	$text = $_POST['tome'];

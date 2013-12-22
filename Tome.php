@@ -22,9 +22,19 @@ $tomes = mysql_query(" SELECT * FROM tomes WHERE user_id = '".mysql_real_escape_
 	
 	<a href="tome.php?tome_id=<?php echo $tome['id']?>">
 		<div id="<?php echo htmlentities($tome['id']); ?>" class="tome zone pad_box">
-			<h1> <?php echo htmlentities($tome['id']); ?> </h1>
-			<p>  &nbsp; <?php echo htmlentities($tome['date']); ?> </p><br>
-			<p> <?php echo htmlentities($tome['text']); ?> </p>
+
+			<div class="metadatas">
+				<h1> <?php echo htmlentities($tome['id']); ?> </h1>
+				<p1>  &nbsp; <?php echo htmlentities($tome['date']); ?> </p1>
+
+				<form id="delete_tome_form" action="lib/delete.php" method="post">
+					<input id="delete_field" type="hidden" name="id" value=<?php echo $tome['id']?>> 
+					<input id="delete_button" type="submit" value="&#10007;"/>
+				</form>
+				
+			</div>
+
+			<p2> <?php echo htmlentities($tome['text']); ?> </p2>
 		</div>
 	</a>
 	

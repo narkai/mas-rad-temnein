@@ -4,12 +4,12 @@ require('inc/Lead.php');
 session_start();
 
 if (!isset($_SESSION['user_name'])) {
-	header ('Location: index.php');
+	header('Location: index.php');
 	exit();
 }
 
 $title = 'Temnein';
-include('header.php');
+require('header.php');
 
 //echo $_SESSION['user_id'];
 //echo $_SESSION['user_name'];
@@ -29,7 +29,7 @@ include('header.php');
 		<div id="tomes">
 
 		<?php
-		$sql = 'SELECT * FROM tomes WHERE user_id = "'. mysql_real_escape_string($_SESSION['user_id']).'" ORDER BY date DESC LIMIT 15';
+		$sql = 'SELECT * FROM tomes WHERE user_id = "'. mysql_real_escape_string($_SESSION['user_id']) .'" ORDER BY date DESC LIMIT 15';
 		displayTomes($sql);
 		?>
 
@@ -41,4 +41,4 @@ include('header.php');
 
 	</div>
 
-<?php include('footer.php'); ?>
+<?php require('footer.php'); ?>

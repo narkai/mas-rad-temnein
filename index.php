@@ -3,10 +3,10 @@ require('inc/Lead.php');
 
 session_start();
 
-require ('login.php');
+require('login.php');
 
 $title = 'Temnein';
-require ('header.php');
+require('header.php');
 ?>
 
 	<div id="add_box" class="black_box pad_box">

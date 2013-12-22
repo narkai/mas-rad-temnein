@@ -79,10 +79,19 @@ form {
 	margin-bottom: 15px;
 }
 
+.tome:hover a{
+	color: black;
+}
+
 .tome a{
 	font-size: 15px;
 	text-decoration: none;
-	color: black;
+	color: white;
+}
+
+.metadatas{
+	overflow: auto;
+	padding-bottom: 15px;
 }
 
 .tome h1{
@@ -92,8 +101,20 @@ form {
 	float: left;
 }
 
-.tome:hover{
-	color: white;
+#delete_tome_form{
+	float:right;
+}
+
+#delete_button{
+
+}
+
+.tome p1{
+	float: left;
+}
+
+.tome p2{
+	clear: both;
 }
 
 #later{
@@ -123,7 +144,7 @@ footer p{
 	padding: 15px 0 15px 15px;
 }
 
-/*LINKS////////////////////////////////////////////////////////////////*/
+/*ELEMENTS////////////////////////////////////////////////////////////////*/
 
 a {
 	color: #fff;
@@ -173,7 +194,6 @@ a:hover {
 .overlimit{
    color: red;         
 }​
-
 
 
 
