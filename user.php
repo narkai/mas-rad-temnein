@@ -21,7 +21,12 @@ require('header.php');
 			<input id="add_button" type="submit" value="Temnein"/>
 		   	<span id="text_count"></span>		
 		</form>
-		<a href="logout.php">Logout</a>
+		
+		<a href="logout.php">
+			<div id="logout_button" class="zone pad_box">
+				<p> Logout </p>
+			</div>
+		</a>
 	</div>
 
 	<div id="content">
@@ -29,7 +34,7 @@ require('header.php');
 		<div id="tomes">
 
 		<?php
-		$sql = 'SELECT * FROM tomes WHERE user_id = "'. mysql_real_escape_string($_SESSION['user_id']) .'" ORDER BY date DESC LIMIT 15';
+		$sql = 'SELECT * FROM tomes WHERE user_id = "'. mysql_real_escape_string($_SESSION['user_id']) .'" ORDER BY id DESC LIMIT 15';
 		displayTomes($sql);
 		?>
 

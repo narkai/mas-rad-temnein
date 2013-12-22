@@ -13,7 +13,6 @@ body{
 
 #site{
 	width: 555px;
-	overflow: auto;
 	margin: 0 auto;
 }
 
@@ -38,10 +37,18 @@ header h1{
 	left: 55px;
 }
 
-form {
+#new_tome_form {
 	overflow: auto;
+	padding-bottom: 15px;
 }
 
+#new_tome_form strong {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: 80px;
+	padding-bottom: 15px;
+}
 
 #add_area{
 	display: block;
@@ -62,6 +69,10 @@ form {
 	color: white;
 }
 
+#logout_button{
+	text-align: center;
+}
+
 /*CONTENT////////////////////////////////////////////////////////////////*/
 
 #content{
@@ -75,7 +86,6 @@ form {
 }
 
 .tome{
-	height: auto;
 	margin-bottom: 15px;
 }
 
@@ -115,6 +125,7 @@ form {
 
 .tome p2{
 	clear: both;
+	word-wrap: break-word;
 }
 
 #later{

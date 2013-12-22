@@ -12,10 +12,12 @@ if (isset($_POST['tome']) && is_scalar($_POST['tome'])) {
 
 	//var_dump($postlines);
 	foreach ($postlines as $key) {
-		$tome = new NewTome($key, $user_id);
-		$tome->insert_db();
-		$sql = 'SELECT * FROM tomes ORDER BY id DESC LIMIT 1';
-		displayTomes($sql);
+		if (strlen($key) > 0 && strlen(trim($key)) > 0) {
+			$tome = new NewTome(trim($key, "\n"), $user_id);
+			$tome->insert_db();
+			$sql = 'SELECT * FROM tomes ORDER BY id DESC LIMIT 1';
+			displayTomes($sql);
+		}
 	}
 	//unset($tome);
 	unset($GLOBALS['tome']);
