@@ -1,11 +1,5 @@
 $(document).ready(function() {
 
-	//
-
-
-
-	//
-
 	var load = false;
 	
 	var offset = $('.tome:last').offset();
@@ -15,27 +9,26 @@ $(document).ready(function() {
 	$('#new_tome_form').on('submit', function() {
 
 		var message = $('#add_area').val();
+		var $form = $(this);
 
 		if(message == '') {
 		   console.log('empty field');
+		   return false;
+
 		} else {
 			if(load == false){
 				load = true;
-
-				$.ajax({
-					url: $(this).attr('action'),
-					type: $(this).attr('method'),
-					data: $(this).serialize(),
-					success: function(data) {
-						console.log(data);
-
-						$('.tome:first').parent().before(data);
-						offset = $('.tome:first').offset();
-
-						load = false;
-					}
-				});
-
+				var ks = message.split("\n");
+				  	$.ajax({
+				  		url: $form.attr('action'),
+				  		type: $form.attr('method'),
+				  		data: $form.serialize(),
+				  		success: function(data) {
+				  			$('.tome:first').parent().before(data);
+				  			offset = $('.tome:first').offset();
+				  			load = false;
+				  		}
+				  	});
 			}
 		}
 		
