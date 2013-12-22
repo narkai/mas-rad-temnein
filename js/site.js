@@ -19,20 +19,16 @@ $(document).ready(function() {
 			if(load == false){
 				load = true;
 				var ks = message.split("\n");
-				//console.log(ks);
-				$.each(ks, function(k, value){
 				  	$.ajax({
 				  		url: $form.attr('action'),
 				  		type: $form.attr('method'),
-				  		data: { tome: value },
+				  		data: $form.serialize(),
 				  		success: function(data) {
-				  			console.log("result : " + data);
 				  			$('.tome:first').parent().before(data);
 				  			offset = $('.tome:first').offset();
 				  			load = false;
 				  		}
 				  	});
-				});		
 			}
 		}
 		
