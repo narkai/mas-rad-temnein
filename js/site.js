@@ -18,17 +18,18 @@ $(document).ready(function() {
 		} else {
 			if(load == false){
 				load = true;
-				var ks = message.split("\n");
-				  	$.ajax({
-				  		url: $form.attr('action'),
-				  		type: $form.attr('method'),
-				  		data: $form.serialize(),
-				  		success: function(data) {
-				  			$('.tome:first').parent().before(data);
-				  			offset = $('.tome:first').offset();
-				  			load = false;
-				  		}
-				  	});
+				
+			  	$.ajax({
+			  		url: $form.attr('action'),
+			  		type: $form.attr('method'),
+			  		data: $form.serialize(),
+			  		success: function(data) {
+			  			$('.tome:first').parent().before(data);
+			  			offset = $('.tome:first').offset();
+
+			  			load = false;
+			  		}
+			  	});
 			}
 		}
 		
@@ -90,23 +91,12 @@ $(document).ready(function() {
 
 	//
 
-	var max = 140;
-	var left = max;
-    $('#text_count').text(left);
+	var num = 0;
+    $('#text_count').text(num);
 
-        $('#add_area').keyup(function () {
-
-        left = max - $(this).val().length;
-
-        if(left < 0){
-            $('#text_count').addClass("overlimit");
-        }
-
-        if(left >= 0){
-            $('#text_count').removeClass("overlimit");
-        }
-
-        $('#text_count').text(left);
+    $('#add_area').keyup(function () {
+        num = $(this).val().length;
+        $('#text_count').text(num);
     });
 
 });

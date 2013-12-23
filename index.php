@@ -5,21 +5,25 @@ session_start();
 
 require('login.php');
 
-$title = 'Temnein';
+$title = 'TEMNEIN';
 require('header.php');
 ?>
 
-	<div id="add_box" class="black_box pad_box">
+<div id="fixed_box" class="black_box">
+	
+	<form action="index.php" method="post">
+		<input class="box_input" type="text" name="username" placeholder="username" required="" tabindex="1" value="">
+		<input class="box_input" type="text" name="password" placeholder="password" required="" tabindex="2" value="">
 		
-		<form  id="new_tome_form" action="index.php" method="post">
-			<strong> Username </strong> <input type="text" name="username" value="<?php if (isset($_POST['username'])) echo htmlentities(trim($_POST['username'])); ?>"> <br> </p>
-			<strong> Password </strong> <input type="password" name="password" value="<?php if (isset($_POST['password'])) echo htmlentities(trim($_POST['password'])); ?>"> <br> </p>
-			<input type="submit" name="connection" value="Connection">
-		</form>
+		<input id="sign_button" type="submit" name="connection" tabindex="3" value="Sign in">
+	</form>
 
-	</div>
+</div>
 
-<?php
+<div id="content">
 
-require('footer.php');
-?>
+	<p class="pad_box"> Temnein is our cause. </p>
+
+</div>
+
+<?php require('footer.php'); ?>

@@ -7,7 +7,7 @@
 <meta name="Description" content="karian, foehr, temnein">
 <meta name="author" content="karian foehr"> 
 
-<meta charset="ISO-8859-1" />
+<meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
 
 <title> <?php echo htmlentities($title) ?> </title>
 
@@ -31,6 +31,6 @@
 
 	<a href="./">
 		<header class="zone">
-			<h1> TEMNEIN </h1>
+			<h1> <?php echo htmlentities($title) ?> </h1>
 		</header>
 	</a>

@@ -12,5 +12,6 @@ if (isset($_POST['id']) && is_scalar($_POST['id'])) {
 	unset($GLOBALS['id']);
 
 	header('Location: ../user.php');
+	exit();
 }
 ?>

@@ -3,7 +3,7 @@ TEMNEIN README
 -
 
 Temnein is a little project for heigvd-mas-rad-2 php module.
-You can save your texts with date.
+You can save your texts.
 
 Karian, Matthieu
 

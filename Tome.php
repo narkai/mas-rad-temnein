@@ -3,7 +3,12 @@ require('inc/Lead.php');
 
 session_start();
 
-$title = 'Temnein';
+if (!isset($_SESSION['user_name'])) {
+	header('Location: index.php');
+	exit();
+}
+
+$title = htmlentities($_SESSION['user_name']);
 require('header.php');
 ?>
 
@@ -27,12 +32,14 @@ if(is_scalar($_GET['tome_id']) && is_numeric($_GET['tome_id'])) {
 			<p1> &nbsp; <?php echo htmlentities($tome['date']); ?> </p1>
 
 			<form id="delete_tome_form" action="lib/delete.php" method="post">
-				<input id="delete_field" type="hidden" name="id" value=<?php echo $tome['id']?>> 
-				<input id="delete_button" type="submit" value="&#10007;"/>
+				<input id="delete_field" type="hidden" name="id" value=<?php echo $tome['id']?>>
+
+				<label for="delete_button"> &#10007; </label>
+				<input class="nostyle_input" id="delete_button" type="submit" value=""/>
 			</form>
 		</div>
 
-		<p2> <?php echo htmlentities($tome['text']); ?> </p2>
+		<p2> <?php echo htmlentities($tome['text'], ENT_QUOTES, "UTF-8"); ?> </p2>
 	</div>
 </a>
 

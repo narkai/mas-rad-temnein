@@ -9,7 +9,7 @@ function displayTomes($query)
   echo
   '<a href="tome.php?tome_id='.urlencode($data['id']).' ">
     <div id=" '.$data['id'].' " class="tome zone pad_box">
-      <p> '.htmlentities($data['text']).' </p>
+      <p2> '.htmlentities($data['text'], ENT_QUOTES, "UTF-8").' </p2>
     </div>
   </a>'
   ;
