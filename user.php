@@ -20,7 +20,7 @@ require('header.php');
 		<form id="new_tome_form" action="lib/new.php" method="post" accept-charset="utf-8">
 			<textarea id="add_area" name="tome" value=""></textarea>
 			<input id="add_button" type="submit" value="Temnein"/>
-		   	<span id="text_count"></span>		
+		  <span id="text_count"></span>
 		</form>
 
 		<a href="logout.php">

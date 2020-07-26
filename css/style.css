@@ -13,7 +13,7 @@ body{
 
 #site{
 	width: 100%;
-	min-width: 555px;
+	/* min-width: 555px; */
 	margin: 0 auto;
 }
 
@@ -31,9 +31,10 @@ header h1{
 }
 
 #fixed_box{
+  display: block;
 	position: fixed;
-	bottom: 55px;
-	left: 55px;
+	bottom: 15px;
+	left: 15px;
 	padding: 15px;
 }
 
@@ -43,6 +44,7 @@ header h1{
 }
 
 #new_tome_form {
+  display: block;
 	overflow: auto;
 	padding-bottom: 15px;
 }
@@ -57,6 +59,12 @@ header h1{
 
 #add_button{
 	float: left;
+  background-color: red;
+  -webkit-user-select: initial;
+  -khtml-user-select: initial;
+  -moz-user-select: initial;
+  -ms-user-select: initial;
+  user-select: initial;
 }
 
 #text_count{
@@ -104,11 +112,12 @@ header h1{
 }
 
 #delete_tome_form{
+  color: red;
 	float:right;
 }
 
 #delete_tome_form:hover{
-	color: red;
+	color: white;
 	cursor: pointer;
 }
 
@@ -207,11 +216,5 @@ a:hover {
 }
 
 .overlimit{
-   color: red;         
+   color: red;
 }​
-
-
-
-
-
-
